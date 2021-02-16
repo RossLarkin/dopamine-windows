@@ -242,6 +242,9 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicSupport4.cs">
       <Link>_SOVA\TopicSupport\TopicSupport4.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\ArchMap\src\TOPICS\Midi\TrackControlTopic.cs">
+      <Link>_TOPICS\TrackControlTopic.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

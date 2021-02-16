@@ -76,11 +76,15 @@ namespace Dopamine
             // Process the command-line arguments
             this.ProcessCommandLineArguments(isNewInstance);
 
+            TheProgram.Program.StartInfra();
+
             if (isNewInstance)
             {
                 this.instanceMutex.ReleaseMutex();
                 this.LaunchInitializer();
                 base.OnStartup(e);
+
+                TheProgram.Program.m_playbackService = Container.Resolve<IPlaybackService>();
             }
             else
             {
