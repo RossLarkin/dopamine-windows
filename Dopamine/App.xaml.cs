@@ -46,6 +46,7 @@ using Dopamine.Views.FullPlayer.Information;
 using Dopamine.Views.FullPlayer.Settings;
 using Dopamine.Views.MiniPlayer;
 using Dopamine.Views.NowPlaying;
+using Infra.Trace;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Prism.Regions;
@@ -116,7 +117,7 @@ namespace Dopamine
 
         protected override void InitializeShell(Window shell)
         {
-            LogClient.Info($"### STARTING {ProductInformation.ApplicationName}, version {ProcessExecutable.AssemblyVersion()}, IsPortable = {SettingsClient.BaseGet<bool>("Configuration", "IsPortable")}, Windows version = {EnvironmentUtils.GetFriendlyWindowsVersion()} ({EnvironmentUtils.GetInternalWindowsVersion()}), IsWindows10 = {Core.Base.Constants.IsWindows10} ###");
+            Tracer.Info($"### STARTING {ProductInformation.ApplicationName}, version {ProcessExecutable.AssemblyVersion()}, IsPortable = {SettingsClient.BaseGet<bool>("Configuration", "IsPortable")}, Windows version = {EnvironmentUtils.GetFriendlyWindowsVersion()} ({EnvironmentUtils.GetInternalWindowsVersion()}), IsWindows10 = {Core.Base.Constants.IsWindows10} ###");
 
             // Handler for unhandled AppDomain exceptions
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -139,7 +140,7 @@ namespace Dopamine
 
                 // Show the OOBE window. Don't tell the Indexer to start. 
                 // It will get a signal to start when the OOBE window closes.
-                LogClient.Info("Showing Oobe screen");
+                Tracer.Info("Showing Oobe screen");
 
                 // Disable shutdown when the dialogs close
                 Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
@@ -153,7 +154,7 @@ namespace Dopamine
             Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
             // Show the main window
-            LogClient.Info("Showing Main screen");
+            Tracer.Info("Showing Main screen");
             shell.Show();
 
             // We're not showing the OOBE screen, tell the IndexingService to start.
@@ -173,7 +174,7 @@ namespace Dopamine
             try
             {
                 commandServicehost.Open();
-                LogClient.Info("CommandService was started successfully");
+                Tracer.Info("CommandService was started successfully");
             }
             catch (Exception ex)
             {
@@ -188,7 +189,7 @@ namespace Dopamine
             try
             {
                 fileServicehost.Open();
-                LogClient.Info("FileService was started successfully");
+                Tracer.Info("FileService was started successfully");
             }
             catch (Exception ex)
             {
@@ -367,12 +368,12 @@ namespace Dopamine
 
             if (args.Length > 1)
             {
-                LogClient.Info("Found command-line arguments.");
+                Tracer.Info("Found command-line arguments.");
 
                 switch (args[1])
                 {
                     case "/donate":
-                        LogClient.Info("Detected DonateCommand from JumpList.");
+                        Tracer.Info("Detected DonateCommand from JumpList.");
 
                         try
                         {
@@ -386,7 +387,7 @@ namespace Dopamine
                         break;
                     default:
 
-                        LogClient.Info("Processing Non-JumpList command-line arguments.");
+                        Tracer.Info("Processing Non-JumpList command-line arguments.");
 
 
                         if (!isNewInstance)
@@ -417,17 +418,17 @@ namespace Dopamine
             {
                 var commandServiceProxy = commandServiceFactory.CreateChannel();
                 commandServiceProxy.ShowMainWindowCommand();
-                LogClient.Info("Trying to show the running instance");
+                Tracer.Info("Trying to show the running instance");
             }
             catch (Exception ex)
             {
-                LogClient.Error("A problem occurred while trying to show the running instance. Exception: {0}", ex.Message);
+                Tracer.Error("A problem occurred while trying to show the running instance. Exception: {0}", ex.Message);
             }
         }
 
         private void TrySendCommandlineArguments(string[] args)
         {
-            LogClient.Info("Trying to send {0} command-line arguments to the running instance", args.Count());
+            Tracer.Info("Trying to send {0} command-line arguments to the running instance", args.Count());
 
             var needsSending = true;
             var startTime = DateTime.Now;
@@ -442,7 +443,7 @@ namespace Dopamine
                     // Try to send the command-line arguments to the running instance
                     var fileServiceProxy = fileServiceFactory.CreateChannel();
                     fileServiceProxy.ProcessArguments(args);
-                    LogClient.Info("Sent {0} command-line arguments to the running instance", args.Count());
+                    Tracer.Info("Sent {0} command-line arguments to the running instance", args.Count());
 
                     needsSending = false;
                 }
@@ -461,7 +462,7 @@ namespace Dopamine
                     {
                         // Log any other Exception and stop trying to send the file to the running instance
                         needsSending = false;
-                        LogClient.Info("A problem occurred while trying to send {0} command-line arguments to the running instance. Exception: {1}", args.Count().ToString(), ex.Message);
+                        Tracer.Info("A problem occurred while trying to send {0} command-line arguments to the running instance. Exception: {1}", args.Count().ToString(), ex.Message);
                     }
                 }
 
@@ -557,7 +558,7 @@ namespace Dopamine
             LogClient.Error("Unhandled Exception. {0}", LogClient.GetAllExceptions(ex));
 
             // Close the application to prevent further problems
-            LogClient.Info("### FORCED STOP of {0}, version {1} ###", ProductInformation.ApplicationName, ProcessExecutable.AssemblyVersion());
+            Tracer.Info("### FORCED STOP of {0}, version {1} ###", ProductInformation.ApplicationName, ProcessExecutable.AssemblyVersion());
 
             // Stop playing (This avoids remaining processes in Task Manager)
             var playbackService = ServiceLocator.Current.GetInstance<IPlaybackService>();
