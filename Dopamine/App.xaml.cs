@@ -75,6 +75,8 @@ namespace Dopamine
             // Process the command-line arguments
             this.ProcessCommandLineArguments(isNewInstance);
 
+            TheProgram.Program.StartInfra();
+
             if (isNewInstance)
             {
                 this.instanceMutex.ReleaseMutex();
