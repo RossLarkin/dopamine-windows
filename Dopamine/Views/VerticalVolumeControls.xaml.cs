@@ -1,4 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Dopamine.Views.Base;
 using Dopamine.Services.Playback;
 using CommonServiceLocator;
@@ -34,7 +34,7 @@ namespace Dopamine.Views
             }
             catch (Exception ex)
             {
-                LogClient.Error("There was a problem changing the volume by mouse scroll. Exception: {0}", ex.Message);
+                Tracer.Error("There was a problem changing the volume by mouse scroll. Exception: {0}", ex.Message);
             }
         }
     }

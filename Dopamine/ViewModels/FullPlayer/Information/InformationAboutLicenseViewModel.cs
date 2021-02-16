@@ -1,5 +1,5 @@
 ﻿using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -20,7 +20,7 @@ namespace Dopamine.ViewModels.FullPlayer.Information
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not open link {0}. Exception: {1}", url, ex.Message);
+                    Tracer.Error("Could not open link {0}. Exception: {1}", url, ex.Message);
                 }
             });
         }

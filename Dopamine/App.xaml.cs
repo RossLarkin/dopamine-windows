@@ -1,6 +1,6 @@
 ﻿using CommonServiceLocator;
 using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Digimezzo.Foundation.WPF.Controls;
@@ -76,8 +76,6 @@ namespace Dopamine
             // Process the command-line arguments
             this.ProcessCommandLineArguments(isNewInstance);
 
-            TheProgram.Program.StartInfra();
-
             if (isNewInstance)
             {
                 this.instanceMutex.ReleaseMutex();
@@ -87,7 +85,7 @@ namespace Dopamine
             else
             {
                 // HACK: because shutdown is too fast, some logging might be missing in the log file.
-                LogClient.Warning("{0} is already running. Shutting down.", ProductInformation.ApplicationName);
+                Tracer.Warn("{0} is already running. Shutting down.", ProductInformation.ApplicationName);
                 this.Shutdown();
             }
         }
@@ -178,7 +176,7 @@ namespace Dopamine
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not start CommandService. Exception: {0}", ex.Message);
+                Tracer.Error("Could not start CommandService. Exception: {0}", ex.Message);
             }
 
             // FileService
@@ -193,7 +191,7 @@ namespace Dopamine
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not start FileService. Exception: {0}", ex.Message);
+                Tracer.Error("Could not start FileService. Exception: {0}", ex.Message);
             }
         }
 
@@ -272,7 +270,7 @@ namespace Dopamine
                     }
                     catch (Exception ex)
                     {
-                        LogClient.Error("Constructing NotificationService failed. Falling back to LegacyNotificationService. Exception: {0}", ex.Message);
+                        Tracer.Error("Constructing NotificationService failed. Falling back to LegacyNotificationService. Exception: {0}", ex.Message);
                         notificationService = new LegacyNotificationService(
                         Container.Resolve<IPlaybackService>(),
                         Container.Resolve<ICacheService>(),
@@ -381,7 +379,7 @@ namespace Dopamine
                         }
                         catch (Exception ex)
                         {
-                            LogClient.Error("Could not open the link {0} in Internet Explorer. Exception: {1}", args[2], ex.Message);
+                            Tracer.Error("Could not open the link {0} in Internet Explorer. Exception: {1}", args[2], ex.Message);
                         }
                         this.Shutdown();
                         break;
@@ -517,7 +515,7 @@ namespace Dopamine
             {
                 if (this.CanLogUnhandledException())
                 {
-                    LogClient.Warning($"Ignored Unhandled Exception: {ex.Message}");
+                    Tracer.Warn($"Ignored Unhandled Exception: {ex.Message}");
                 }
 
                 return;
@@ -530,7 +528,7 @@ namespace Dopamine
             {
                 if (this.CanLogUnhandledException())
                 {
-                    LogClient.Warning($"Ignored Unhandled Exception: {ex.Message}");
+                    Tracer.Warn($"Ignored Unhandled Exception: {ex.Message}");
                 }
 
                 return;
@@ -544,18 +542,18 @@ namespace Dopamine
             {
                 if (this.CanLogUnhandledException())
                 {
-                    LogClient.Warning($"Ignored Unhandled Exception: {ex.Message}");
+                    Tracer.Warn($"Ignored Unhandled Exception: {ex.Message}");
                 }
 
                 return;
             }
 
-            // LogClient.Warning($"Ignored Unhandled Exception: Message=<<<<{ex.Message}>>>>");
-            // LogClient.Warning($"Ignored Unhandled Exception: Type=<<<<{ex.GetType().ToString()}>>>>");
-            // LogClient.Warning($"Ignored Unhandled Exception: Source=<<<<{ex.Source.ToString()}>>>>");
+            // Tracer.Warn($"Ignored Unhandled Exception: Message=<<<<{ex.Message}>>>>");
+            // Tracer.Warn($"Ignored Unhandled Exception: Type=<<<<{ex.GetType().ToString()}>>>>");
+            // Tracer.Warn($"Ignored Unhandled Exception: Source=<<<<{ex.Source.ToString()}>>>>");
             // return;
 
-            LogClient.Error("Unhandled Exception. {0}", LogClient.GetAllExceptions(ex));
+//L            Tracer.Error("Unhandled Exception. {0}", LogClient.GetAllExceptions(ex));
 
             // Close the application to prevent further problems
             Tracer.Info("### FORCED STOP of {0}, version {1} ###", ProductInformation.ApplicationName, ProcessExecutable.AssemblyVersion());

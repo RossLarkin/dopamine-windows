@@ -1,8 +1,9 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
 using Dopamine.Data.Entities;
 using Dopamine.Services.Entities;
+using Infra.Trace;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -155,7 +156,7 @@ namespace Dopamine.Services.Notification
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not hide notification window from ALT-TAB menu. Exception: {0}", ex.Message);
+                Tracer.Error("Could not hide notification window from ALT-TAB menu. Exception: {0}", ex.Message);
             }
             
             this.IsEnabled = true;

@@ -1,4 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
@@ -243,7 +243,7 @@ namespace Dopamine.ViewModels.Common.Base
             }
             catch (Exception ex)
             {
-                LogClient.Error("An error occurred while getting Tracks. Exception: {0}", ex.Message);
+                Tracer.Error("An error occurred while getting Tracks. Exception: {0}", ex.Message);
 
                 // Failed getting Tracks. Create empty ObservableCollection.
                 this.Tracks = new ObservableCollection<TrackViewModel>();
@@ -357,7 +357,7 @@ namespace Dopamine.ViewModels.Common.Base
                     }
                     catch (Exception ex)
                     {
-                        LogClient.Error("An error occurred while setting size information. Exception: {0}", ex.Message);
+                        Tracer.Error("An error occurred while setting size information. Exception: {0}", ex.Message);
                     }
 
                 });

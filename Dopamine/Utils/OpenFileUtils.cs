@@ -1,6 +1,6 @@
 ﻿using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using System;
 using System.Threading.Tasks;
 
@@ -34,7 +34,7 @@ namespace Dopamine.Utils
                     }
                     catch (Exception ex)
                     {
-                        LogClient.Error("An error occurred while converting the image to a Byte[]. Exception: {0}", ex.Message);
+                        Tracer.Error("An error occurred while converting the image to a Byte[]. Exception: {0}", ex.Message);
                         isOpenSuccess = false;
                     }
                 });

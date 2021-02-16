@@ -1,4 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Services.Cache;
 using Dopamine.Services.Dialog;
@@ -76,7 +76,7 @@ namespace Dopamine.ViewModels.Common
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not download artwork. Exception: {0}", ex.Message);
+                Tracer.Error("Could not download artwork. Exception: {0}", ex.Message);
             }
         }
 
@@ -112,7 +112,7 @@ namespace Dopamine.ViewModels.Common
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("An error occurred while getting the artwork for album title='{0}' and artist='{1}'. Exception: {2}", (string)this.albumViewModel.AlbumTitle, (string)this.albumViewModel.AlbumArtist, ex.Message);
+                    Tracer.Error("An error occurred while getting the artwork for album title='{0}' and artist='{1}'. Exception: {2}", (string)this.albumViewModel.AlbumTitle, (string)this.albumViewModel.AlbumArtist, ex.Message);
                 }
             });
         }
@@ -130,7 +130,7 @@ namespace Dopamine.ViewModels.Common
             }
             catch (Exception ex)
             {
-                LogClient.Error("An error occurred while saving the album with title='{0}' and artist='{1}'. Exception: {2}", (string)this.albumViewModel.AlbumTitle, (string)this.albumViewModel.AlbumArtist, ex.Message);
+                Tracer.Error("An error occurred while saving the album with title='{0}' and artist='{1}'. Exception: {2}", (string)this.albumViewModel.AlbumTitle, (string)this.albumViewModel.AlbumArtist, ex.Message);
             }
 
             this.IsBusy = false;

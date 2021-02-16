@@ -1,5 +1,5 @@
 ﻿using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Digimezzo.Foundation.Core.Settings;
 using Dopamine.Core.Base;
 using Dopamine.Core.IO;
@@ -60,7 +60,7 @@ namespace Dopamine.ViewModels.FullPlayer.Settings
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not open the ColorSchemes directory. Exception: {0}", ex.Message);
+                    Tracer.Error("Could not open the ColorSchemes directory. Exception: {0}", ex.Message);
                 }
             });
 

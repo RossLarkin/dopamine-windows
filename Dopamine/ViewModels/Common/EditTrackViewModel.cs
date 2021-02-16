@@ -1,4 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
 using Dopamine.Core.Enums;
@@ -248,7 +248,7 @@ namespace Dopamine.ViewModels.Common
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not download artwork. Exception: {0}", ex.Message);
+                Tracer.Error("Could not download artwork. Exception: {0}", ex.Message);
             }
         }
 
@@ -300,7 +300,7 @@ namespace Dopamine.ViewModels.Common
             }
             catch (Exception ex)
             {
-                LogClient.Error("An error occurred while getting the metadata from the files. Exception: {0}", ex.Message);
+                Tracer.Error("An error occurred while getting the metadata from the files. Exception: {0}", ex.Message);
             }
 
             if (fileMetadatas.Count == 0) return;
@@ -366,7 +366,7 @@ namespace Dopamine.ViewModels.Common
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("An error occurred while parsing the metadata. Exception: {0}", ex.Message);
+                    Tracer.Error("An error occurred while parsing the metadata. Exception: {0}", ex.Message);
                 }
             });
         }
@@ -478,7 +478,7 @@ namespace Dopamine.ViewModels.Common
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("An error occurred while setting the metadata. Exception: {0}", ex.Message);
+                    Tracer.Error("An error occurred while setting the metadata. Exception: {0}", ex.Message);
                 }
             });
 

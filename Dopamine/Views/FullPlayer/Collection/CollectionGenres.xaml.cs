@@ -1,4 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Dopamine.Views.Common.Base;
 using Dopamine.Core.Prism;
 using Dopamine.Utils;
@@ -37,7 +37,7 @@ namespace Dopamine.Views.FullPlayer.Collection
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not perform semantic zoom on Genres. Exception: {0}", ex.Message);
+                    Tracer.Error("Could not perform semantic zoom on Genres. Exception: {0}", ex.Message);
                 }
             });
         }
@@ -60,7 +60,7 @@ namespace Dopamine.Views.FullPlayer.Collection
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not perform semantic scroll Genre. Exception: {0}", ex.Message);
+                    Tracer.Error("Could not perform semantic scroll Genre. Exception: {0}", ex.Message);
                 }
 
             });

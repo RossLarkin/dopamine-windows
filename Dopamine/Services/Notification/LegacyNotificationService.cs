@@ -1,10 +1,11 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Infra.Trace;
 using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.WPF.Controls;
 using Dopamine.Core.Base;
 using Dopamine.Services.Cache;
 using Dopamine.Services.Metadata;
 using Dopamine.Services.Playback;
+using Infra.Trace;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -181,7 +182,7 @@ namespace Dopamine.Services.Notification
             }
             catch (Exception ex)
             {
-                LogClient.Error("Error while trying to disable the notification. Exception: {0}", ex.Message);
+                Tracer.Error("Error while trying to disable the notification. Exception: {0}", ex.Message);
             }
 
             try
@@ -208,7 +209,7 @@ namespace Dopamine.Services.Notification
             }
             catch (Exception ex)
             {
-                LogClient.Error("Error while trying to show the notification. Exception: {0}", ex.Message);
+                Tracer.Error("Error while trying to show the notification. Exception: {0}", ex.Message);
             }
         }
 

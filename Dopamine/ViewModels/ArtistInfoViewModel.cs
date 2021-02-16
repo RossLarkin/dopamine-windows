@@ -1,5 +1,5 @@
 ﻿using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Api.Fanart;
 using Dopamine.Core.Api.Lastfm;
@@ -143,7 +143,7 @@ namespace Dopamine.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not open link {0}. Exception: {1}", url, ex.Message);
+                    Tracer.Error("Could not open link {0}. Exception: {1}", url, ex.Message);
                 }
             });
         }
@@ -168,7 +168,7 @@ namespace Dopamine.ViewModels
                         }
                         catch (Exception ex)
                         {
-                            LogClient.Warning($"Could not get artist image from Fanart for artist {similarArtist.Name}. Exception: {ex}");
+                            Tracer.Warn($"Could not get artist image from Fanart for artist {similarArtist.Name}. Exception: {ex}");
                         }
 
                         localSimilarArtists.Add(new SimilarArtistViewModel { Name = similarArtist.Name, Url = similarArtist.Url, ImageUrl = artistImageUrl });

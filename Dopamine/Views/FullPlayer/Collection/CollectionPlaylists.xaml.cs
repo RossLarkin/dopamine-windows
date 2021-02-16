@@ -1,6 +1,6 @@
 ﻿using CommonServiceLocator;
 using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Dopamine.Core.Prism;
 using Dopamine.Services.Entities;
 using Dopamine.Services.Playlist;
@@ -99,7 +99,7 @@ namespace Dopamine.Views.FullPlayer.Collection
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not view playlist in Windows Explorer. Exception: {0}", ex.Message);
+                Tracer.Error("Could not view playlist in Windows Explorer. Exception: {0}", ex.Message);
             }
         }
     }

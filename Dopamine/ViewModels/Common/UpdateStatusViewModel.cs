@@ -1,5 +1,5 @@
 ﻿using Digimezzo.Foundation.Core.IO;
-using Digimezzo.Foundation.Core.Logging;
+using Infra.Trace;
 using Digimezzo.Foundation.Core.Packaging;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
@@ -99,7 +99,7 @@ namespace Dopamine.ViewModels.Common
                 }
                 catch (Exception ex)
                 {
-                    LogClient.Error("Could not start the MSI installer. Download link was opened instead. Exception: {0}", ex.Message);
+                    Tracer.Error("Could not start the MSI installer. Download link was opened instead. Exception: {0}", ex.Message);
                     this.OpenDownloadLink();
                 }
             }
@@ -118,7 +118,7 @@ namespace Dopamine.ViewModels.Common
             }
             catch (Exception ex)
             {
-                LogClient.Error("Could not open the download link. Exception: {0}", ex.Message);
+                Tracer.Error("Could not open the download link. Exception: {0}", ex.Message);
             }
         }
     }
