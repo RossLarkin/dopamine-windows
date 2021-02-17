@@ -62,7 +62,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net45\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -158,12 +158,6 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\CommandLine.cs">
       <Link>_SOVA\Infra.App\CommandLine.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\InfraBase_NoGui.cs">
-      <Link>_SOVA\Infra.App\InfraBase_NoGui.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\InfraBase_XT4.cs">
-      <Link>_SOVA\Infra.App\InfraBase_XT4.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\XmlXpath.cs">
       <Link>_SOVA\Infra.App\XmlXpath.cs</Link>
     </Compile>
@@ -179,8 +173,8 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraCommand_XT.cs">
       <Link>_SOVA\Infra.Connection\InfraCommand_XT.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraConnectionV4T.cs">
-      <Link>_SOVA\Infra.Connection\InfraConnectionV4T.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraConnection_XT4.cs">
+      <Link>_SOVA\Infra.Connection\InfraConnection_XT4.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessageSocketV4T.cs">
       <Link>_SOVA\Infra.Transport\InfraMessageSocketV4T.cs</Link>
@@ -230,17 +224,17 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\ServerInterTopic.cs">
       <Link>_SOVA\TopicSystem\ServerInterTopic.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\CommandTypeXmlInfra_XT4.cs">
-      <Link>_SOVA\TopicSupport\CommandTypeXmlInfra_XT4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\CommandTypeXmlInfra_XT.cs">
+      <Link>_SOVA\TopicSupport\CommandTypeXmlInfra_XT.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\SavePretty.cs">
       <Link>_SOVA\TopicSupport\SavePretty.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicBase_XT4.cs">
-      <Link>_SOVA\TopicSupport\TopicBase_XT4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicBase_XT.cs">
+      <Link>_SOVA\TopicSupport\TopicBase_XT.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicCache_XT4.cs">
-      <Link>_SOVA\TopicSupport\TopicCache_XT4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicCache_XT.cs">
+      <Link>_SOVA\TopicSupport\TopicCache_XT.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicSupport4.cs">
       <Link>_SOVA\TopicSupport\TopicSupport4.cs</Link>

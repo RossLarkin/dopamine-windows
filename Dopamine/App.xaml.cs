@@ -65,8 +65,16 @@ namespace Dopamine
         private Mutex instanceMutex = null;
         private DateTime lastUnhandledExceptionLoggedTime = DateTime.MinValue;
 
+        static App()
+        {
+            Tracer.Info2( InfraColor.White, InfraColor.DarkBlue, "**** Starting ******" );
+            TheProgram.Program.StartInfra();
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
+            Tracer.Info2( InfraColor.White, InfraColor.DarkBlue, "**** Starting App ******" );
+
             // Create a jump-list and assign it to the current application
             JumpList.SetJumpList(Current, new JumpList());
 
@@ -76,15 +84,13 @@ namespace Dopamine
             // Process the command-line arguments
             this.ProcessCommandLineArguments(isNewInstance);
 
-            TheProgram.Program.StartInfra();
-
             if (isNewInstance)
             {
                 this.instanceMutex.ReleaseMutex();
                 this.LaunchInitializer();
                 base.OnStartup(e);
 
-                TheProgram.Program.m_playbackService = Container.Resolve<IPlaybackService>();
+                TheProgram.Program.SetPlaybackService( Container.Resolve<IPlaybackService>() );
             }
             else
             {

@@ -14,25 +14,23 @@ namespace TheProgram
     static partial class Program
     {
         internal static string   g_szAppName = "Dopamine";  // NOTE: simple static global for Design Mode.  Also locale folder.
-        internal static IPlaybackService m_playbackService;
+        private static IPlaybackService m_playbackService;
 
 
         internal static void StartInfra()
         {
             Tracer.SetFilterTraceLevel( CommandLine.Value( "LogLevel" ) );
+            Tracer.Info2( InfraColor.White, InfraColor.DarkBlue, "**** Starting Infra ******" );
 
             InfraConnection.g = new InfraConnection( g_szAppName );
-            Tracer.SwitchToTcp( InfraConnection.g );
-
             InfraConnection.g.Start( CommandLine.Value( "-infrahost" ), CommandLine.nValue( "port", GLOBAL2.TCP_HUB_PORT )); // 8368 
-
-            InfraBase_NoGui appNoGui = new InfraBase_NoGui( g_szAppName );
-            InfraConnection.g.SaveCacheToXml( AppDomain.CurrentDomain.BaseDirectory + "/TopicInfo.xml" );  // Exe folder
-
-            Task taskStartInfra = new Task(() => appNoGui.Run(), TaskCreationOptions.LongRunning );
-            taskStartInfra.Start();
         }
 
+        internal static void SetPlaybackService( IPlaybackService playbackService )
+        {
+            Tracer.Info2( InfraColor.White, InfraColor.DarkBlue, "Have playback service instance." );
+            m_playbackService = playbackService;
+        }
 
 
         [TopicHandler( typeof(TrackControlTopic))]
