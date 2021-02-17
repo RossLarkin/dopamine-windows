@@ -155,90 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\CommandLine.cs">
-      <Link>_SOVA\Infra.App\CommandLine.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\XmlXpath.cs">
-      <Link>_SOVA\Infra.App\XmlXpath.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\DisconnectReason.cs">
-      <Link>_SOVA\Infra.Transport\DisconnectReason.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\Global.cs">
-      <Link>_SOVA\Infra.Connection\Global.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraAutoSocketV4T.cs">
-      <Link>_SOVA\Infra.Transport\InfraAutoSocketV4T.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraCommand_XT.cs">
-      <Link>_SOVA\Infra.Connection\InfraCommand_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraConnection_XT4.cs">
-      <Link>_SOVA\Infra.Connection\InfraConnection_XT4.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessageSocketV4T.cs">
-      <Link>_SOVA\Infra.Transport\InfraMessageSocketV4T.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessage_XT.cs">
-      <Link>_SOVA\Infra.Transport\InfraMessage_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraSocketBase.cs">
-      <Link>_SOVA\Infra.Transport\InfraSocketBase.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\MultiValueDictionary.cs">
-      <Link>_SOVA\TopicSupport\MultiValueDictionary.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\SocketForFramesV4T.cs">
-      <Link>_SOVA\Infra.Transport\SocketForFramesV4T.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\ThreadedFifo.cs">
-      <Link>_SOVA\Infra.Transport\ThreadedFifo.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\GenericDef4.cs">
-      <Link>_SOVA\Infra.Tracer\GenericDef4.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraColor.cs">
-      <Link>_SOVA\Infra.Tracer\InfraColor.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracerBase.cs">
-      <Link>_SOVA\Infra.Tracer\InfraTracerBase.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracerCore.cs">
-      <Link>_SOVA\Infra.Tracer\InfraTracerCore.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracer_XT.cs">
-      <Link>_SOVA\Infra.Tracer\InfraTracer_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\TracerUdp_XT.cs">
-      <Link>_SOVA\Infra.Tracer\TracerUdp_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\PubSubTopic.cs">
-      <Link>_SOVA\TopicsSystem\PubSubTopic.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\RemoteLogLevelTopic4.cs">
-      <Link>_SOVA\TopicsSystem\RemoteLogLevelTopic4.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\SelfTopic4.cs">
-      <Link>_SOVA\TopicsSystem\SelfTopic4.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\ServerInterTopic.cs">
-      <Link>_SOVA\TopicsSystem\ServerInterTopic.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\CommandTypeXmlInfra_XT.cs">
-      <Link>_SOVA\TopicSupport\CommandTypeXmlInfra_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\SavePretty.cs">
-      <Link>_SOVA\TopicSupport\SavePretty.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicBase_XT.cs">
-      <Link>_SOVA\TopicSupport\TopicBase_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicCache_XT.cs">
-      <Link>_SOVA\TopicSupport\TopicCache_XT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicSupport4.cs">
-      <Link>_SOVA\TopicSupport\TopicSupport4.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\ArchMap\src\TOPICS\Midi\TrackControlTopic.cs">
       <Link>_TOPICS\TrackControlTopic.cs</Link>
     </Compile>
@@ -940,6 +856,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ArchMap\src\InfraSupport\InfraWpfAddon472\InfraWpfAddon472.csproj">
+      <Project>{5c145bc9-65c2-44f5-a777-d246c73843bb}</Project>
+      <Name>InfraWpfAddon472</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dopamine.Core\Dopamine.Core.csproj">
       <Project>{7FAAC843-6AA9-4B5B-8678-937137A61E47}</Project>
       <Name>Dopamine.Core</Name>
@@ -1529,7 +1449,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infra.Transport\" />
-    <Folder Include="_SOVA\Topics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.9\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.9\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />

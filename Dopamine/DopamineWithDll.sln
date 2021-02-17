@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dopamine.Data", "..\Dopamin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dopamine.Services", "..\Dopamine.Services\Dopamine.Services.csproj", "{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfraWpfAddon472", "..\..\..\ArchMap\src\InfraSupport\InfraWpfAddon472\InfraWpfAddon472.csproj", "{5C145BC9-65C2-44F5-A777-D246C73843BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C145BC9-65C2-44F5-A777-D246C73843BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C145BC9-65C2-44F5-A777-D246C73843BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C145BC9-65C2-44F5-A777-D246C73843BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C145BC9-65C2-44F5-A777-D246C73843BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
