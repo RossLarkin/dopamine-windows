@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DopamineWithDll", "DopamineWithDll.csproj", "{CB66D1A5-AB9F-460F-9955-86EB2EB0DD5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dopamine.Core", "..\Dopamine.Core\Dopamine.Core.csproj", "{7FAAC843-6AA9-4B5B-8678-937137A61E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dopamine.Data", "..\Dopamine.Data\Dopamine.Data.csproj", "{3AA1D889-7AAF-4385-A373-8E2757D47FD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dopamine.Services", "..\Dopamine.Services\Dopamine.Services.csproj", "{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB66D1A5-AB9F-460F-9955-86EB2EB0DD5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB66D1A5-AB9F-460F-9955-86EB2EB0DD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB66D1A5-AB9F-460F-9955-86EB2EB0DD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB66D1A5-AB9F-460F-9955-86EB2EB0DD5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAAC843-6AA9-4B5B-8678-937137A61E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAAC843-6AA9-4B5B-8678-937137A61E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAAC843-6AA9-4B5B-8678-937137A61E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAAC843-6AA9-4B5B-8678-937137A61E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA1D889-7AAF-4385-A373-8E2757D47FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA1D889-7AAF-4385-A373-8E2757D47FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA1D889-7AAF-4385-A373-8E2757D47FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA1D889-7AAF-4385-A373-8E2757D47FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C13D3A-BEF1-4825-9C60-14AAEC9714B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC351344-A9C1-4890-9446-830A2CDBFEFB}
+	EndGlobalSection
+EndGlobal
