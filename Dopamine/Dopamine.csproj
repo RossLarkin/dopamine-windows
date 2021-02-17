@@ -39,7 +39,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;UsePublic</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UsePublic;Use_XT4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -49,7 +49,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;UsePublic</DefineConstants>
+    <DefineConstants>TRACE;UsePublic;Use_XT4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -158,47 +158,47 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\CommandLine.cs">
       <Link>_SOVA\Infra.App\CommandLine.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\InfraBase.cs">
-      <Link>_SOVA\Infra.App\InfraBase.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\InfraBase_NoGui.cs">
       <Link>_SOVA\Infra.App\InfraBase_NoGui.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\InfraBase_XT4.cs">
+      <Link>_SOVA\Infra.App\InfraBase_XT4.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.App\XmlXpath.cs">
       <Link>_SOVA\Infra.App\XmlXpath.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\DisconnectReason.cs">
-      <Link>_SOVA\Infra.Connection\DisconnectReason.cs</Link>
+      <Link>_SOVA\Infra.Transport\DisconnectReason.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\Global.cs">
       <Link>_SOVA\Infra.Connection\Global.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraAutoSocketV4T.cs">
-      <Link>_SOVA\Infra.Connection\InfraAutoSocketV4T.cs</Link>
+      <Link>_SOVA\Infra.Transport\InfraAutoSocketV4T.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraCommand4.cs">
-      <Link>_SOVA\Infra.Connection\InfraCommand4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraCommand_XT.cs">
+      <Link>_SOVA\Infra.Connection\InfraCommand_XT.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraConnectionV4T.cs">
       <Link>_SOVA\Infra.Connection\InfraConnectionV4T.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessage4.cs">
-      <Link>_SOVA\Infra.Connection\InfraMessage4.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessageSocketV4T.cs">
-      <Link>_SOVA\Infra.Connection\InfraMessageSocketV4T.cs</Link>
+      <Link>_SOVA\Infra.Transport\InfraMessageSocketV4T.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraMessage_XT.cs">
+      <Link>_SOVA\Infra.Transport\InfraMessage_XT.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\InfraSocketBase.cs">
-      <Link>_SOVA\Infra.Connection\InfraSocketBase.cs</Link>
+      <Link>_SOVA\Infra.Transport\InfraSocketBase.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\MultiValueDictionary.cs">
-      <Link>_SOVA\Infra.Connection\MultiValueDictionary.cs</Link>
+      <Link>_SOVA\TopicSupport\MultiValueDictionary.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\SocketForFramesV4T.cs">
-      <Link>_SOVA\Infra.Connection\SocketForFramesV4T.cs</Link>
+      <Link>_SOVA\Infra.Transport\SocketForFramesV4T.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Connection\ThreadedFifo.cs">
-      <Link>_SOVA\Infra.Connection\ThreadedFifo.cs</Link>
+      <Link>_SOVA\Infra.Transport\ThreadedFifo.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\GenericDef4.cs">
       <Link>_SOVA\Infra.Tracer\GenericDef4.cs</Link>
@@ -206,17 +206,17 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraColor.cs">
       <Link>_SOVA\Infra.Tracer\InfraColor.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracer4.cs">
-      <Link>_SOVA\Infra.Tracer\InfraTracer4.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracerBase.cs">
       <Link>_SOVA\Infra.Tracer\InfraTracerBase.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracerCore.cs">
       <Link>_SOVA\Infra.Tracer\InfraTracerCore.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\TracerUdp4.cs">
-      <Link>_SOVA\Infra.Tracer\TracerUdp4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\InfraTracer_XT.cs">
+      <Link>_SOVA\Infra.Tracer\InfraTracer_XT.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\Infra.Tracer\TracerUdp_XT.cs">
+      <Link>_SOVA\Infra.Tracer\TracerUdp_XT.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\PubSubTopic.cs">
       <Link>_SOVA\TopicSystem\PubSubTopic.cs</Link>
@@ -230,14 +230,17 @@
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicsSystem\ServerInterTopic.cs">
       <Link>_SOVA\TopicSystem\ServerInterTopic.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\CommandTypeXmlInfraXT4.cs">
-      <Link>_SOVA\TopicSupport\CommandTypeXmlInfraXT4.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\CommandTypeXmlInfra_XT4.cs">
+      <Link>_SOVA\TopicSupport\CommandTypeXmlInfra_XT4.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\SavePretty.cs">
+      <Link>_SOVA\TopicSupport\SavePretty.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicBase_XT4.cs">
       <Link>_SOVA\TopicSupport\TopicBase_XT4.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicCache4XT.cs">
-      <Link>_SOVA\TopicSupport\TopicCache4XT.cs</Link>
+    <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicCache_XT4.cs">
+      <Link>_SOVA\TopicSupport\TopicCache_XT4.cs</Link>
     </Compile>
     <Compile Include="..\..\..\ArchMap\src\SOVA\TopicSupport\TopicSupport4.cs">
       <Link>_SOVA\TopicSupport\TopicSupport4.cs</Link>
@@ -1531,6 +1534,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Infra.Transport\" />
     <Folder Include="_SOVA\Topics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
