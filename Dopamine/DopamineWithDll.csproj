@@ -155,6 +155,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="..\..\..\ArchMap\src\TOPICS\Midi\MidiDataTopic.cs">
+      <Link>_TOPICS\MidiDataTopic.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\ArchMap\src\TOPICS\Midi\TrackControlTopic.cs">
       <Link>_TOPICS\TrackControlTopic.cs</Link>
     </Compile>

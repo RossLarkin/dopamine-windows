@@ -11,6 +11,7 @@ using Solarena.Topics.Midi;
 
 namespace TheProgram
 {
+    [TopicPublisher( typeof( MidiDataTopic ))]
     static partial class Program
     {
         internal static string   g_szAppName = "Dopamine";  // NOTE: simple static global for Design Mode.  Also locale folder.
@@ -30,8 +31,35 @@ namespace TheProgram
         {
             Tracer.Info2( InfraColor.White, InfraColor.DarkBlue, "Have playback service instance." );
             m_playbackService = playbackService;
+
+            m_playbackService.PlaybackVolumeChanged += PlaybackVolumeChangedCallBack;
         }
 
+        private static void PlaybackVolumeChangedCallBack(object sender, PlaybackVolumeChangedEventArgs e)
+        {
+            float fVolume = m_playbackService.Volume;
+//L            Tracer.Info( $"fVolume={fVolume}" );
+
+            double dMidiVolume = fVolume * 127.0;
+            MidiDataTopic.g.NamedValue( "Volume", dMidiVolume, "Dopamine" );
+        }
+
+        [TopicHandler( typeof(MidiDataTopic))]
+        public static void NamedValue( string SubTopic, double Value, string Origin )
+        {
+            if (SubTopic != "Volume"  ) return;
+            if (Origin   == "Dopamine") return;
+            if (m_playbackService == null) {  Tracer.Error( "playback is null." ); return; }
+
+            float fVolume = (float)(Value / 127.0);
+            m_playbackService.Volume = (1000.0f + fVolume);  // Flag as midi set to avoid change event.
+        }
+
+        [TopicHandler(typeof(MidiDataTopic))]
+        public static void OnPrime( uint Spoke )  // spokeFrom
+        {
+            PlaybackVolumeChangedCallBack( null, null );
+        }
 
         [TopicHandler( typeof(TrackControlTopic))]
         public static async void NextTrack() 

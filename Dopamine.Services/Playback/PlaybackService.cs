@@ -134,6 +134,14 @@ namespace Dopamine.Services.Playback
 
             set
             {
+                bool isMidiSet = false;
+
+                if ((value >= 1000.0f) && (value <= 1001.0f)) 
+                {
+                    isMidiSet = true;
+                    value -= 1000.0f;
+                }
+
                 if (value > 1)
                 {
                     value = 1;
@@ -149,7 +157,7 @@ namespace Dopamine.Services.Playback
                 if (this.player != null && !this.mute) this.player.SetVolume(value);
 
                 SettingsClient.Set<double>("Playback", "Volume", Math.Round(value, 2));
-                this.PlaybackVolumeChanged(this, new PlaybackVolumeChangedEventArgs(isLoadingSettings));
+                if (! isMidiSet) this.PlaybackVolumeChanged(this, new PlaybackVolumeChangedEventArgs(isLoadingSettings));
             }
         }
 
