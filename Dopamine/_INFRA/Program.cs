@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Dopamine.Services.Entities;
 using Dopamine.Services.Playback;
 using Global;
 using Infra.App;
@@ -33,6 +34,13 @@ namespace TheProgram
             m_playbackService = playbackService;
 
             m_playbackService.PlaybackVolumeChanged += PlaybackVolumeChangedCallBack;
+            m_playbackService.PlaybackSuccess += PlaybackService_PlaybackSuccess;
+        }
+
+        private static void PlaybackService_PlaybackSuccess( object sender, PlaybackSuccessEventArgs e )
+        {
+            TrackViewModel track = m_playbackService.CurrentTrack;
+            TrackControlTopic.g.CurrentTrack( track.TrackTitle, track.ArtistName, track.AlbumTitle );
         }
 
         private static void PlaybackVolumeChangedCallBack(object sender, PlaybackVolumeChangedEventArgs e)
@@ -42,6 +50,12 @@ namespace TheProgram
 
             double dMidiVolume = fVolume * 127.0;
             MidiDataTopic.g.NamedValue( "Volume", dMidiVolume, "Dopamine" );
+        }
+
+
+        [TopicHandler( typeof(MidiDataTopic))]
+        public static void RawValue( string SubTopic, double Raw, double RealValueForCompare )
+        {
         }
 
         [TopicHandler( typeof(MidiDataTopic))]
@@ -93,6 +107,8 @@ namespace TheProgram
             if (m_playbackService == null) {  Tracer.Error( "playback is null." ); return; }
             m_playbackService.PlayOrPauseAsync();
         }
-
     }
+
+    [TopicPublisher( typeof( TrackControlTopic ))]
+    static class TopicPub { }
 }
