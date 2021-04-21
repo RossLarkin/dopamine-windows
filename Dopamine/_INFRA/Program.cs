@@ -52,7 +52,6 @@ namespace TheProgram
             MidiDataTopic.g.NamedValue( "Volume", dMidiVolume, "Dopamine" );
         }
 
-
         [TopicHandler( typeof(MidiDataTopic))]
         public static void RawValue( string SubTopic, double Raw, double RealValueForCompare )
         {
@@ -106,6 +105,18 @@ namespace TheProgram
         {
             if (m_playbackService == null) {  Tracer.Error( "playback is null." ); return; }
             m_playbackService.PlayOrPauseAsync();
+        }
+
+        [TopicHandler( typeof(TrackControlTopic))]
+        public static async void RestartTrack( int RestartDelay ) 
+        {
+            if (m_playbackService == null) {  Tracer.Error( "playback is null." ); return; }
+            m_playbackService.RestartTrack( RestartDelay );
+        }
+
+        [TopicHandler( typeof(TrackControlTopic))]
+        public static void CurrentTrack( string TrackTitle, string ArtistName, string AlbumTitle )
+        {
         }
     }
 

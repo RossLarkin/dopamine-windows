@@ -74,6 +74,7 @@ namespace Dopamine.Services.Playback
         Task PlayPreviousAsync();
 
         Task PlayOrPauseAsync();
+        Task RestartTrack( int RestartDelay );
 
         Task PlaySelectedAsync(TrackViewModel track);
 

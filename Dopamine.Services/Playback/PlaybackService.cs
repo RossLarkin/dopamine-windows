@@ -586,6 +586,14 @@ namespace Dopamine.Services.Playback
             }
         }
 
+        public async Task RestartTrack( int RestartDelay )
+        {
+            await this.PauseAsync();
+                  this.player.Skip(0);
+            await Task.Delay( RestartDelay );
+            await this.ResumeAsync();
+        }
+
         public void SetMute(bool mute)
         {
             this.mute = mute;
